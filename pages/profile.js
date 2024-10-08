@@ -83,8 +83,9 @@ export default function Profil() {
             setUserData({
                 nom: session.user.name.split(' ')[1] || '',
                 prenom: session.user.name.split(' ')[0] || '',
+                email: session.user.email || '',
+                adresse:  '',
                 dateNaissance: '',
-                adresse: '',
                 telephone: ''
             });
         }
