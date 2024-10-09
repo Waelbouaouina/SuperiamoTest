@@ -22,7 +22,7 @@ export default NextAuth({
   },
 
   callbacks: {
-    async redirect({ url, baseUrl }) {
+    async redirect({ baseUrl }) {
       return `${baseUrl}/profile`;
     },
     async session({ session, token }) {

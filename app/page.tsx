@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { signIn } from "next-auth/react";
+import Link from "next/link"; // Importer Link de next/link
 
 export default function Home() {
   return (
@@ -25,7 +26,6 @@ export default function Home() {
           height={50}
         />
       </div>
-
 
       <div style={{
         background: 'white',
@@ -83,7 +83,6 @@ export default function Home() {
           Connectez-vous pour accéder à vos fonctionnalités.
         </p>
 
-
         <button
           onClick={() => signIn("google")}
           style={{
@@ -127,12 +126,11 @@ export default function Home() {
         </button>
 
         <p style={{ color: '#555', marginTop: '20px', fontSize: '16px' }}>
-          Vous n'avez pas de compte ? <a href="/cree" style={{ color: '#4285F4', textDecoration: 'underline' }}>Inscrivez-vous ici</a>
+          Vous n'avez pas de compte ? <Link href="/cree" style={{ color: '#4285F4', textDecoration: 'underline' }}>Inscrivez-vous ici</Link>
         </p>
 
         <p style={{ color: '#888', marginTop: '20px', fontSize: '14px' }}>© {new Date().getFullYear()} Superiamo. Tous droits réservés.</p>
       </div>
-
 
       <div style={{ marginLeft: '40px', position: 'relative' }}>
         <Image
@@ -160,7 +158,6 @@ export default function Home() {
           }}
         />
       </div>
-
 
       <Image
         src="https://superiamo.fr/assets/img/shape-8.svg"
