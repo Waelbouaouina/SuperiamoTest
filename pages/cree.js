@@ -162,7 +162,10 @@ export default function Profil() {
     };
 
     if (status === 'loading') return <p>Chargement...</p>;
-    if (!session) return <p>Vous devez être connecté pour voir cette page.</p>;
+    if (!session) {
+        router.push('/cree');
+        return null;
+    }
 
     return (
         <>
