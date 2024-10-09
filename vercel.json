@@ -1,16 +1,20 @@
 {
-    "rewrites": [
+    "routes": [
       {
-        "source": "/auth/signin",
-        "destination": "/auth/signin"
+        "src": "/api/auth/(.*)",
+        "dest": "/api/auth/$1"
       },
       {
-        "source": "/profile",
-        "destination": "/profile"
+        "src": "/auth/signin",
+        "dest": "/auth/signin"
       },
       {
-        "source": "/cree",
-        "destination": "/cree"
+        "src": "/profile",
+        "dest": "/profile"
+      },
+      {
+        "src": "/cree",
+        "dest": "/cree"
       }
     ]
   }
