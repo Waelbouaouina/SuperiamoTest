@@ -1,0 +1,17 @@
+{
+    "rewrites": [
+      {
+        "source": "/auth/signin",
+        "destination": "/auth/signin"
+      },
+      {
+        "source": "/profile",
+        "destination": "/profile"
+      },
+      {
+        "source": "/cree",
+        "destination": "/cree"
+      }
+    ]
+  }
+  
