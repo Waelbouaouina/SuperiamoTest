@@ -1,4 +1,5 @@
 import { signIn } from "next-auth/react";
+import Image from 'next/image';
 
 export default function SignIn() {
   return (
@@ -50,7 +51,13 @@ export default function SignIn() {
             e.currentTarget.style.transform = 'scale(1)';
           }}
         >
-          <img src="https://image.similarpng.com/very-thumbnail/2021/09/Logo-Search-Google--on-transparent-background-PNG.png" alt="Google" style={{ width: '20px', marginRight: '8px' }} /> { }
+          <Image
+            src="/google-logo.png"
+            alt="Google"
+            width={20}
+            height={20}
+            style={{ marginRight: '8px' }}
+          />
           Se connecter avec Google
         </button>
         <p style={{ color: '#888', marginTop: '20px', fontSize: '14px' }}>© {new Date().getFullYear()} Superiamo. Tous droits réservés.</p>

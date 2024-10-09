@@ -4,11 +4,18 @@ import Link from 'next/link';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
+import Image from 'next/image';
 
 const Navbar = () => {
     return (
         <nav style={navbarStyle}>
-            <img src="https://superiamo.fr/assets/img/logo.png" alt="Logo" style={logoStyle} />
+            <Image
+                src="https://superiamo.fr/assets/img/logo.png"
+                alt="Logo"
+                width={100}
+                height={40}
+                style={logoStyle}
+            />
             <ul style={navListStyle}>
                 <li style={navItemStyle}>
                     <Link href="/" style={navLinkStyle}>Accueil</Link>
@@ -75,16 +82,17 @@ export default function Profil() {
     const [isValidAddress, setIsValidAddress] = useState(null);
     const [loading, setLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
-
     const [isHovered, setIsHovered] = useState(false);
 
     useEffect(() => {
         if (session) {
+            const [prenom, ...rest] = session.user.name.split(' ');
+            const nom = rest.join(' ') || '';
             setUserData({
-                nom: session.user.name.split(' ')[1] || '',
-                prenom: session.user.name.split(' ')[0] || '',
+                nom,
+                prenom,
                 email: session.user.email || '',
-                adresse:  '',
+                adresse: '',
                 dateNaissance: '',
                 telephone: ''
             });
@@ -96,6 +104,7 @@ export default function Profil() {
         setUserData({ ...userData, [name]: value });
         if (name === 'adresse') {
             setIsValidAddress(null);
+            setErrorMessage('');
         }
     };
 
@@ -114,6 +123,7 @@ export default function Profil() {
 
                 if (distanceFromParis <= 50) {
                     setIsValidAddress(true);
+                    setErrorMessage('');
                     await axios.post('/api/user', userData);
                     alert('Informations mises à jour avec succès !');
                 } else {
@@ -126,7 +136,8 @@ export default function Profil() {
             }
         } catch (error) {
             console.error('Erreur lors de la validation de l\'adresse:', error);
-            setErrorMessage('Erreur lors de la validation de l\'adresse. Veuillez vérifier votre connexion.');
+            // setIsValidAddress(false);
+            // setErrorMessage('Erreur lors de la validation de l'adresse. Veuillez vérifier votre connexion.');
         } finally {
             setLoading(false);
         }
@@ -149,9 +160,9 @@ export default function Profil() {
     return (
         <>
             <Navbar />
-            <img src="https://superiamo.fr/assets/img/shape-5.svg" alt="Shape" style={backgroundImageStyle1} />
-            <img src="https://superiamo.fr/assets/img/shape-1.svg" alt="Shape" style={backgroundImageStyle2} />
-            <img src="https://superiamo.fr/assets/img/shape-2.svg" alt="Shape" style={backgroundImageStyle3} />
+            <Image src="https://superiamo.fr/assets/img/shape-5.svg" alt="Shape" width={150} height={150} style={backgroundImageStyle1} />
+            <Image src="https://superiamo.fr/assets/img/shape-1.svg" alt="Shape" width={150} height={150} style={backgroundImageStyle2} />
+            <Image src="https://superiamo.fr/assets/img/shape-2.svg" alt="Shape" width={150} height={150} style={backgroundImageStyle3} />
 
             <div style={containerStyle}>
                 <div style={{ textAlign: 'center', marginBottom: '20px' }}>
@@ -187,8 +198,7 @@ export default function Profil() {
                         {loading ? 'Chargement...' : 'Mettre à jour'}
                     </button>
                     {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
-                    {isValidAddress === false && <p style={{ color: 'red' }}>Adresse non valide.</p>}
-                    {isValidAddress === true && <p style={{ color: 'green' }}>Adresse valide !</p>}
+                    {isValidAddress && <p style={{ color: 'green' }}>Adresse valide !</p>}
                 </form>
             </div>
         </>
@@ -203,39 +213,33 @@ const containerStyle = {
     backgroundColor: '#fff',
     borderRadius: '10px',
     boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)',
-    zIndex: 1,
 };
 
 const backgroundImageStyle1 = {
     position: 'absolute',
-    top: 0,
-    left: 0,
+    top: '-50px',
+    right: '-100px',
     zIndex: -1,
-    width: '150px'
 };
 
 const backgroundImageStyle2 = {
     position: 'absolute',
-    bottom: 0,
-    right: 0,
+    bottom: '-100px',
+    left: '-100px',
     zIndex: -1,
-    width: '150px'
 };
 
 const backgroundImageStyle3 = {
     position: 'absolute',
-    top: '50%',
-    left: '50%',
+    bottom: '0',
+    right: '0',
     zIndex: -1,
-    width: '150px'
 };
 
 const inputStyle = {
     padding: '10px',
-    border: '1px solid #ddd',
+    border: '1px solid #ccc',
     borderRadius: '5px',
-    fontSize: '16px',
-    width: '100%',
 };
 
 const buttonStyle = {
@@ -243,7 +247,7 @@ const buttonStyle = {
     border: 'none',
     borderRadius: '5px',
     color: '#fff',
-    fontSize: '16px',
+    fontWeight: 'bold',
     cursor: 'pointer',
-    transition: 'background-color 0.3s, transform 0.2s',
+    transition: 'background-color 0.3s',
 };

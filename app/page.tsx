@@ -17,7 +17,6 @@ export default function Home() {
       position: 'relative',
     }}>
 
-      { }
       <div style={{ position: 'absolute', top: '20px', left: '20px' }}>
         <Image
           src="https://superiamo.fr/assets/img/logo.png"
@@ -27,7 +26,7 @@ export default function Home() {
         />
       </div>
 
-      { }
+
       <div style={{
         background: 'white',
         borderRadius: '12px',
@@ -39,10 +38,9 @@ export default function Home() {
         position: 'relative',
       }}>
 
-        { }
         <Image
           src="https://superiamo.fr/assets/img/shape-3.svg"
-          alt="Shape 1"
+          alt="Decorative Shape"
           width={50}
           height={50}
           style={{
@@ -63,10 +61,9 @@ export default function Home() {
           Bienvenue chez Superiamo
         </h1>
 
-        { }
         <Image
           src="https://superiamo.fr/assets/img/shape-2.svg"
-          alt="Shape 2"
+          alt="Decorative Shape"
           width={50}
           height={50}
           style={{
@@ -86,7 +83,7 @@ export default function Home() {
           Connectez-vous pour accéder à vos fonctionnalités.
         </p>
 
-        { }
+
         <button
           onClick={() => signIn("google")}
           style={{
@@ -115,11 +112,12 @@ export default function Home() {
             e.currentTarget.style.transform = 'scale(1)';
           }}
         >
-          <img
+          <Image
             src="https://image.similarpng.com/very-thumbnail/2021/09/Logo-Search-Google--on-transparent-background-PNG.png"
             alt="Google"
+            width={20}
+            height={20}
             style={{
-              width: '20px',
               marginRight: '8px',
               backgroundColor: 'white',
               borderRadius: '50%'
@@ -128,7 +126,6 @@ export default function Home() {
           Se connecter avec Google
         </button>
 
-        { }
         <p style={{ color: '#555', marginTop: '20px', fontSize: '16px' }}>
           Vous n'avez pas de compte ? <a href="/cree" style={{ color: '#4285F4', textDecoration: 'underline' }}>Inscrivez-vous ici</a>
         </p>
@@ -136,7 +133,7 @@ export default function Home() {
         <p style={{ color: '#888', marginTop: '20px', fontSize: '14px' }}>© {new Date().getFullYear()} Superiamo. Tous droits réservés.</p>
       </div>
 
-      { }
+
       <div style={{ marginLeft: '40px', position: 'relative' }}>
         <Image
           src="https://superiamo.fr/assets/img/img-1.png"
@@ -149,11 +146,9 @@ export default function Home() {
             backgroundColor: 'transparent'
           }}
         />
-
-        { }
         <Image
           src="https://superiamo.fr/assets/img/shape-5.svg"
-          alt="Shape 1"
+          alt="Decorative Shape"
           width={70}
           height={70}
           style={{
@@ -166,10 +161,10 @@ export default function Home() {
         />
       </div>
 
-      { }
+
       <Image
         src="https://superiamo.fr/assets/img/shape-8.svg"
-        alt="Shape 2"
+        alt="Additional Decorative Shape"
         width={80}
         height={80}
         style={{
@@ -181,10 +176,9 @@ export default function Home() {
         }}
       />
 
-      { }
       <Image
         src="https://superiamo.fr/assets/img/shape-1.svg"
-        alt="Shape 8"
+        alt="Additional Decorative Shape"
         width={100}
         height={100}
         style={{
@@ -198,7 +192,7 @@ export default function Home() {
       />
       <Image
         src="https://superiamo.fr/assets/img/shape-2.svg"
-        alt="Shape 8"
+        alt="Decorative Shape Bottom"
         width={100}
         height={100}
         style={{

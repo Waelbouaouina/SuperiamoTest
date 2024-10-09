@@ -4,12 +4,18 @@ import Link from 'next/link';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
+import Image from 'next/image';
 
 
 const Navbar = () => {
     return (
         <nav style={navbarStyle}>
-            <img src="https://superiamo.fr/assets/img/logo.png" alt="Logo" style={logoStyle} />
+            <Image
+                src="https://superiamo.fr/assets/img/logo.png"
+                alt="Logo"
+                width={100}
+                height={40}
+                style={logoStyle} />
             <ul style={navListStyle}>
                 <li style={navItemStyle}>
                     <Link href="/" style={navLinkStyle}>Accueil</Link>
@@ -21,7 +27,13 @@ const Navbar = () => {
                     <Link href="/" style={navLinkStyle}>Sign Out</Link>
                 </li>
             </ul>
-            <img src="https://superiamo.fr/assets/img/shape-1.svg" alt="Shape" style={{ width: '30px', height: '30px' }} />
+            <Image
+                src="https://superiamo.fr/assets/img/shape-1.svg"
+                alt="Shape"
+                width={100}
+                height={40}
+
+            />
         </nav>
     );
 };
@@ -78,7 +90,7 @@ export default function Profil() {
     const [isValidAddress, setIsValidAddress] = useState(null);
     const [loading, setLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
-    
+
 
 
     const [isHovered, setIsHovered] = useState(false);
@@ -132,7 +144,7 @@ export default function Profil() {
             }
         } catch (error) {
             console.error('Erreur lors de la validation de l\'adresse:', error);
-            setErrorMessage('Erreur lors de la validation de l\'adresse. Veuillez vérifier votre connexion.');
+            // setErrorMessage('Erreur lors de la validation de l'adresse. Veuillez vérifier votre connexion.');
         } finally {
             setLoading(false);
         }
@@ -155,9 +167,9 @@ export default function Profil() {
     return (
         <>
             <Navbar />
-            <img src="https://superiamo.fr/assets/img/shape-5.svg" alt="Shape" style={backgroundImageStyle1} />
-            <img src="https://superiamo.fr/assets/img/shape-1.svg" alt="Shape" style={backgroundImageStyle2} />
-            <img src="https://superiamo.fr/assets/img/shape-2.svg" alt="Shape" style={backgroundImageStyle3} />
+            <Image src="https://superiamo.fr/assets/img/shape-5.svg" alt="Shape" width={150} height={150} style={backgroundImageStyle1} />
+            <Image src="https://superiamo.fr/assets/img/shape-1.svg" alt="Shape" width={150} height={150} style={backgroundImageStyle2} />
+            <Image src="https://superiamo.fr/assets/img/shape-2.svg" alt="Shape" width={150} height={150} style={backgroundImageStyle3} />
 
             <div style={containerStyle}>
                 <div style={{ textAlign: 'center', marginBottom: '20px' }}>

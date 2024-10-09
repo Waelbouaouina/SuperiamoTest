@@ -16,7 +16,6 @@ export default NextAuth({
 
   secret: process.env.NEXTAUTH_SECRET,
 
-
   pages: {
     signIn: '/auth/signin',
     error: '/auth/error',
@@ -26,8 +25,11 @@ export default NextAuth({
     async redirect({ url, baseUrl }) {
       return `${baseUrl}/profile`;
     },
-    async session({ session, token, user }) {
-      session.user.id = token.sub;
+    async session({ session, token }) {
+
+      if (token?.id) {
+        session.user.id = token.id;
+      }
       return session;
     },
     async jwt({ token, user }) {
@@ -37,4 +39,16 @@ export default NextAuth({
       return token;
     },
   },
+
+  events: {
+
+    signIn: async (message) => {
+      console.log("User signed in", message);
+    },
+    error: async (message) => {
+      console.log("Error occurred", message);
+    },
+  },
+
+  debug: process.env.NODE_ENV === 'development',
 });

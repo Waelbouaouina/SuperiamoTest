@@ -1,3 +1,4 @@
+import { signOut } from 'next-auth/react';
 import Link from 'next/link';
 
 export default function Navbar() {
@@ -6,7 +7,9 @@ export default function Navbar() {
       <ul style={navListStyle}>
         <li style={navItemStyle}><Link href="/">Accueil</Link></li>
         <li style={navItemStyle}><Link href="/profile">Profil</Link></li>
-        <li style={navItemStyle}><Link href="/api/auth/signout">Signout</Link></li>
+        <li style={navItemStyle}>
+          <a onClick={() => signOut()} style={{ color: '#fff', cursor: 'pointer' }}>Signout</a>
+        </li>
       </ul>
     </nav>
   );
