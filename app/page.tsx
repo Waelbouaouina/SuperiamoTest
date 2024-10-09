@@ -2,21 +2,23 @@
 
 import Image from "next/image";
 import { signIn } from "next-auth/react";
-import Link from "next/link"; // Importer Link de next/link
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div style={{
-      display: 'flex',
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-      minHeight: '100vh',
-      backgroundColor: 'white',
-      fontFamily: 'Arial, sans-serif',
-      padding: '20px',
-      position: 'relative',
-    }}>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        minHeight: '100vh',
+        backgroundColor: 'white',
+        fontFamily: 'Arial, sans-serif',
+        padding: '20px',
+        position: 'relative',
+      }}
+    >
 
       <div style={{ position: 'absolute', top: '20px', left: '20px' }}>
         <Image
@@ -27,16 +29,18 @@ export default function Home() {
         />
       </div>
 
-      <div style={{
-        background: 'white',
-        borderRadius: '12px',
-        boxShadow: '0 8px 30px rgba(0, 0, 0, 0.15)',
-        padding: '50px',
-        textAlign: 'center',
-        width: '50%',
-        maxWidth: '600px',
-        position: 'relative',
-      }}>
+      <div
+        style={{
+          background: 'white',
+          borderRadius: '12px',
+          boxShadow: '0 8px 30px rgba(0, 0, 0, 0.15)',
+          padding: '50px',
+          textAlign: 'center',
+          width: '50%',
+          maxWidth: '600px',
+          position: 'relative',
+        }}
+      >
 
         <Image
           src="https://superiamo.fr/assets/img/shape-3.svg"
@@ -47,7 +51,7 @@ export default function Home() {
             position: 'absolute',
             top: '-20px',
             left: '-20px',
-            opacity: 0.8
+            opacity: 0.8,
           }}
         />
 
@@ -70,14 +74,14 @@ export default function Home() {
             position: 'absolute',
             bottom: '-20px',
             right: '-20px',
-            opacity: 0.8
+            opacity: 0.8,
           }}
         />
 
         <p style={{
           marginBottom: '30px',
           color: '#555',
-          fontSize: '18px'
+          fontSize: '18px',
         }}>
           Superiamo, la plateforme qui vous permet de gérer votre compte facilement et en toute sécurité.
           Connectez-vous pour accéder à vos fonctionnalités.
@@ -119,17 +123,19 @@ export default function Home() {
             style={{
               marginRight: '8px',
               backgroundColor: 'white',
-              borderRadius: '50%'
+              borderRadius: '50%',
             }}
           />
           Se connecter avec Google
         </button>
 
         <p style={{ color: '#555', marginTop: '20px', fontSize: '16px' }}>
-          Vous n'avez pas de compte ? <Link href="/cree" style={{ color: '#4285F4', textDecoration: 'underline' }}>Inscrivez-vous ici</Link>
+          Vous n&apos;avez pas de compte ? <Link href="/cree" style={{ color: '#4285F4', textDecoration: 'underline' }}>Inscrivez-vous ici</Link>
         </p>
 
-        <p style={{ color: '#888', marginTop: '20px', fontSize: '14px' }}>© {new Date().getFullYear()} Superiamo. Tous droits réservés.</p>
+        <p style={{ color: '#888', marginTop: '20px', fontSize: '14px' }}>
+          © {new Date().getFullYear()} Superiamo. Tous droits réservés.
+        </p>
       </div>
 
       <div style={{ marginLeft: '40px', position: 'relative' }}>
@@ -141,7 +147,7 @@ export default function Home() {
           style={{
             borderRadius: '12px',
             boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2)',
-            backgroundColor: 'transparent'
+            backgroundColor: 'transparent',
           }}
         />
         <Image
